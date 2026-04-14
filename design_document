@@ -1,0 +1,132 @@
+Automation Testing Framework – Design Document
+
+ 1. Project Overview
+
+This project is a Selenium-based Automation Testing Framework developed using Java, TestNG, and Maven.
+The framework automates key user workflows of the Automation Exercise website.
+
+
+
+2. Objectives
+
+* Automate login functionality (valid and invalid scenarios)
+* Automate product search and add-to-cart flow
+* Automate checkout process
+* Capture screenshots for failed test cases
+* Generate execution reports using Extent Reports
+
+
+
+3. Framework Architecture
+
+The framework follows the Page Object Model (POM) design pattern to ensure maintainability and reusability.
+
+### Layers
+
+*Base Layer
+
+* Handles WebDriver initialization and teardown
+* Manages browser setup and configuration
+
+*Page Layer
+
+* Contains page classes with web elements and actions
+* Example: LoginPage, ProductPage, CartPage, CheckoutPage
+
+*Test Layer
+
+* Contains test cases and test logic
+* Example: LoginTest
+
+*Utility Layer
+
+* ConfigReader: Reads configuration from properties file
+* ExcelUtils: Reads test data from Excel file
+
+*Listener Layer
+
+* ExtentReportListener: Handles reporting and screenshot capture
+
+
+  4. Test Scenarios
+
+Test Case 1: Valid Login and End-to-End Flow
+
+* Login using valid credentials
+* Navigate to products page
+* Search for a product
+* Add product to cart
+* View cart
+* Proceed to checkout
+* Place order
+
+ Test Case 2: Invalid Login
+
+* Attempt login with invalid credentials
+* Verify error message is displayed
+* Capture screenshot on failure
+
+5. Technologies Used
+
+* Java
+* Selenium WebDriver
+* TestNG
+* Maven
+* Apache POI (for Excel handling)
+* Extent Reports
+
+6. Project Structure
+
+src/
+├── main/java
+│    ├── base
+│    ├── pages
+│    ├── utils
+│
+├── test/java
+│    ├── tests
+│    ├── listeners
+│
+├── test/resources
+│    ├── config.properties
+│    ├── testdata.xlsx
+
+7. Configuration
+
+All configurations are maintained in the config.properties file.
+
+Example:
+browser=chrome
+url=https://automationexercise.com
+implicitWait=10
+explicitWait=20
+
+8. Reporting
+
+* Extent Reports are used for test execution reporting
+* Reports are generated in the reports folder
+* Screenshots are attached for failed test cases
+
+9. Screenshots
+
+* Screenshots are captured automatically on test failure
+* Stored in the screenshots folder
+
+ 10. Execution Steps
+
+1. Clone the repository
+2. Import the project as a Maven project
+3. Run testng.xml
+
+11. Key Features
+
+* Page Object Model implementation
+* Data-driven testing using Excel
+* Screenshot capture on failure
+* Structured and reusable framework
+* Easy to extend and maintain
+
+ 12. Conclusion
+
+This automation framework is designed to be scalable, maintainable, and reusable.
+It successfully automates key functionalities of the application and fulfills the project requirements.
