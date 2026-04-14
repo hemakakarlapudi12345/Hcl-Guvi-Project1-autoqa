@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Automation Test Suite" parallel="tests" thread-count="1">
+    
+    <listeners>
+        <listener class-name="listeners.ExtentReportListener"/>
+    </listeners>
+    
+    <test name="Login Tests">
+        <classes>
+            <class name="tests.LoginTest">
+                <methods>
+                    <include name="testValidLoginFlow"/>
+                    <include name="testInvalidLoginFlow"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    
+</suite>
